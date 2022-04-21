@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--  ?? 2015-2016 Akretion (http://www.akretion.com/)
+  @author Alexis de Lattre <alexis.delattre@akretion.com>
+  License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+
+<odoo>
+
+
+
+    <record id="view_template_property_form" model="ir.ui.view">
+        <field name="name">mvcommunication.product.template.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="stock.view_template_property_form" />
+        <field name="arch" type="xml">
+            <field name="categ_id" position="after">
+                <field name="specs"/>
+                <field name="wallmart_name"/>
+            </field>
+            <notebook>
+                <page string="General Data" name="important_fields_for_ecommerce">
+                    <group>
+                        <group string="Box Content" name="box_content">
+                                <field name="box_content"/>
+                        </group>
+                        <group string="Box Data" name="box_data">
+                                <field name="box_height"/>
+                                <field name="box_length"/>
+                                <field name="box_width"/>
+                                <field name="box_weigth"/>
+                        </group>
+                        <group string="Box Data With Packing" name="box_data_with_packaging">
+                                <field name="box_height_with_packing"/>
+                                <field name="box_length_with_packing"/>
+                                <field name="box_width_with_packing"/>
+                                <field name="box_weigth_with_packing"/>
+                        </group>
+                        <group string="Warranty Information" name="warranty_info">
+                                <field name="guarantor"/>
+                                <field name="warranty_conditions"/>
+                                <field name="warranty"/>
+                                <field name="shipping_country"/>
+                        </group>
+                    </group>
+                </page>
+                <page string="Phone Spectifications" name="adicionales_telefonos">
+                    <group>
+                        <group string="Newtork" name="additional_network">
+                                <field name="technology_bands"/>
+                                <field name="technology"/>
+                                <field name="multimedia_internet"/>
+                                <field name="mms"/>
+                                <field name="unlocked"/>
+                        </group>
+                        <group string="Launch" name="additional_launch">
+                                <field name="announced"/>
+                                <field name="status"/>
+                        </group>
+                         <group string="Body" name="body">
+                                <field name="dimensions"/>
+                                <field name="weight"/>
+                                <field name="build"/>
+                                <field name="sim"/>
+                                <field name="body_extra"/>
+                                <field name="illuminated_keyboard"/>
+
+                        </group>
+                        <group string="Display" name="display">
+                                <field name="illuminated_display"/>
+                                <field name="display_type"/>
+                                <field name="display_size"/>
+                                <field name="display_resolution"/>
+                                <field name="display_protection"/>
+                                <field name="touch_screen"/>
+                        </group>
+                        <group string="Platform" name="platform">
+                                <field name="os"/>
+                                <field name="chipset"/>
+                                <field name="cpu"/>
+                                <field name="gpu"/>
+                                <field name="app"/>
+                        </group>
+                        <group string="Memory" name="memory">
+                                <field name="card_slot"/>
+                                <field name="internal"/>
+                        </group>
+                        <group string="Main Camera" name="main_camera">
+                                <field name="main_Camera"/>
+                                <field name="main_camera_features"/>
+                                <field name="main_camera_video"/>
+                        </group>
+                        <group string="Selfie Camera" name="selfie_camera">
+                                <field name="selfie_Camera"/>
+                                <field name="selfie_camera_features"/>
+                                <field name="selfie_camera_video"/>
+                                <field name="selfie_camera_video_call"/>
+                        </group>
+                        <group string="Sound" name="sound">
+                                <field name="loudspeaker"/>
+                                <field name="headphone_jack"/>
+                                <field name="headphone_jack_info"/>
+                                <field name="microphone"/>
+                                <field name="mp3player"/>
+                        </group>
+                        <group string="Comms" name="comms">
+                                <field name="wlan"/>
+                                <field name="bluetooth"/>
+                                <field name="gps"/>
+                                <field name="nfc"/>
+                                <field name="radio"/>
+                                <field name="usb"/>
+                        </group>
+                        <group string="Features" name="features">
+                            <field name="answer_machine"/>
+                            <field name="features"/>
+                        </group>
+                        <group string="Battery" name="battery">
+                                <field name="battery"/>
+                                <field name="talk_time"/>
+                                <field name="charging"/>
+                                <field name="power_save"/>
+                        </group>
+                        <group string="Misc" name="misc">
+                                <field name="colors"/>
+                                <field name="model"/>
+                                <field name="tv"/>
+                                <field name="sar"/>
+                                <field name="sar_eu"/>
+                                <field name="assistance"/>
+                        </group>
+                        <group string="Tests" name="tests">
+                                <field name="performance"/>
+                                <field name="display_performance"/>
+                                <field name="Camera_performance"/>
+                                <field name="loudspeaker_performance"/>
+                                <field name="audio_performance"/>
+                                <field name="battery_performance"/>
+                        </group>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+</odoo>

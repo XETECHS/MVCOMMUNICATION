@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report
+            id="action_reyblock_invoice_pdf"
+            model="account.invoice"
+            string="Contraseña de pago"
+            report_type="qweb-pdf"
+            name="reyblock_bill.reyblock_invoice_pdf"
+            file="reyblock_bill.reyblock_invoice_pdf"
+            attachment="(object.state in ('open','in_payment','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')"
+            print_report_name="(object._get_report_base_filename())"
+    />
+    <template id="reyblock_invoice_pdf">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="lang"
+                   t-value="o.user_id.lang if o.type in ('in_invoice', 'in_refund') else o.partner_id.lang"/>
+                <t t-call="reyblock_bill.report_invoice_document" t-lang="lang"/>
+            </t>
+        </t>
+    </template>
+    <template id="report_invoice_document">
+            <t t-call="web.external_layout">
+                <t t-set="o" t-value="o.with_context(lang=lang)" />
+                <div class="page">
+                    <h3>
+                        <span>Contraseña de pago <span t-field="o.number"/></span><br/>
+                    </h3>
+                    <br/>
+                    <h6 class="row">
+                        <div class="col-12 mw-100 mb-3">
+                            <strong style="display:inline-block">Fecha: </strong>
+                            <span class="m-0" t-field="o.date_invoice"/>
+                        </div>
+                        <div class="col-12 mw-100 mb-3">
+                            <strong style="display:inline-block">Recibimos de: </strong>
+                            <span class="m-0" t-field="o.partner_id"/>
+                        </div>
+                        <div class="col-12 mw-100 mb-4">
+                            <strong style="display:inline-block">Factura(s) No. (s): </strong>
+                            <span  class="m-0" t-field="o.number"/>
+                        </div>
+                        <div class="col-12 mw-100 mb-3">
+                            <strong style="display:inline-block">Por el valor de Q: </strong>
+                            <span  class="m-0" t-field="o.amount_total"/>
+                        </div>
+                        <div class="col-12 mw-100 mb-3">
+                            <strong style="display:inline-block">Para su revisión y pago del día: </strong>
+                            <span  class="m-0" t-field="o.date_due"/>
+                           <p> de 15:00 a 17:00 horas.</p>
+                        </div>
+                        <div class="col-12 mw-100 mb-3">
+                            <strong style="display:inline-block">Recibido por:</strong>
+                            <span  class="m-0" t-field="o.user_id"/>
+                        </div>
+                    </h6>
+                    <p>
+                        Este no es un comprobante de recepción de mercadería. Favor exigir firma y sello en factura
+                    </p>
+
+
+                </div>
+            </t>
+        </template>
+</odoo>

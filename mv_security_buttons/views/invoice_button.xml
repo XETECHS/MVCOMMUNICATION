@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!--  -->
+        <record id="view_invoice_button_validate" model="ir.ui.view">
+            <field name="name">view.invoice.button.validate</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="priority" eval="10"/>
+            <field name="arch" type="xml">
+                <xpath expr='//button[@name="action_post"]' position="attributes">
+                    <attribute name="groups">mv_security_buttons.group_ver_boton_validar_factura</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

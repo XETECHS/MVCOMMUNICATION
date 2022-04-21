@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!--   -->
+        <record id="view_sale_order_button_confirm" model="ir.ui.view">
+            <field name="name">view.sale.order.button.confirm</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="priority" eval="10"/>
+            <field name="arch" type="xml">
+
+                <xpath expr='//button[@name="action_confirm"]' position="attributes">
+                    <attribute name="groups">mv_security_buttons.group_ver_boton_confirmar_so</attribute>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

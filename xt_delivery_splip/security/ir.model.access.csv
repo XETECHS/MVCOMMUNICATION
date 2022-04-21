@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_reyblock_bill_reyblock_bill,reyblock_bill.reyblock_bill,model_reyblock_bill_reyblock_bill,,1,0,0,0

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+            <!-- view specific to product.template -->
+        <record id="product_template_retailprice_only_form_view" model="ir.ui.view">
+            <field name="name">product.template.retailprice.product.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+             
+                 <field name="list_price" position="after">
+                    <field name="retail_price" string="Sales Retail Price" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                </field>
+
+            </field>
+        </record>
+
+
+         <!-- view specific product.product -->
+
+        <record id="product_retailprice_normal_form_view" model="ir.ui.view">
+            <field name="name">product.product.retailprice.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+
+                <field name="lst_price" position="after">
+                    <field name="retail_price" string="Sales Retail Price" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                </field>
+
+            </field>
+        </record>
+        
+        <record id="res_config_retailprice_only_form_view" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.sale.priceretail</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
+            <field name="arch" type="xml">           	
+    			<xpath expr="//div/div[2]/div[4]" position="after">            		
+                	<div class="col-12 col-lg-6 o_setting_box" title=" Indicar cual es la tarifa para Precio Retail.">
+                    	<div class="o_setting_left_pane">
+                        </div>
+                        <div class="o_setting_right_pane">
+                        	<label for="price_retail_list_id"/>
+                            <div class="text-muted">
+                            	Let your customers log in to see their documents
+                            </div>
+                            <div class="mt8">
+                            	<field name="price_retail_list_id" class="o_light_label"/>
+                            </div>
+                        </div>
+                	</div>        
+            	</xpath>                        
+			</field>
+		</record>
+ 		
+
+</data>
+</openerp>
+

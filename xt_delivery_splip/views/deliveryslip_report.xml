@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+            id="deliveryslip_xlsx"
+            model="stock.picking"
+            string="Delivery Slip XLS"
+            report_type="xlsx"
+            name="xt_delivery_splip.deliveryslip_report_xls.xlsx"
+            file="xt_delivery_splip.deliveryslip_report_xls.xlsx"
+            attachment_use="False"
+        />
+    </data>
+</odoo>
